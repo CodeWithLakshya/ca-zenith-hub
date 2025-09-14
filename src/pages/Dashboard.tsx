@@ -10,6 +10,10 @@ import { TasksAssignments } from "@/components/pages/TasksAssignments";
 import { HRPayroll } from "@/components/pages/HRPayroll";
 import { AttendanceManagement } from "@/components/pages/AttendanceManagement";
 import { TeamChat } from "@/components/pages/TeamChat";
+import { VideoConferencing } from "@/components/pages/VideoConferencing";
+import { NotificationsCirculars } from "@/components/pages/NotificationsCirculars";
+import { LegalResources } from "@/components/pages/LegalResources";
+import { Settings } from "@/components/pages/Settings";
 import { AIAnalysis } from "@/components/pages/AIAnalysis";
 
 export const Dashboard = () => {
@@ -42,6 +46,14 @@ export const Dashboard = () => {
         return <AttendanceManagement />;
       case "chat":
         return <TeamChat />;
+      case "video":
+        return <VideoConferencing />;
+      case "notifications":
+        return <NotificationsCirculars />;
+      case "resources":
+        return <LegalResources />;
+      case "settings":
+        return <Settings />;
       case "ai-analysis":
         return <AIAnalysis />;
       default:
