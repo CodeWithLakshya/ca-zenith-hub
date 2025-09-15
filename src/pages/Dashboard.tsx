@@ -15,6 +15,8 @@ import { NotificationsCirculars } from "@/components/pages/NotificationsCircular
 import { LegalResources } from "@/components/pages/LegalResources";
 import { Settings } from "@/components/pages/Settings";
 import { AIAnalysis } from "@/components/pages/AIAnalysis";
+import { LayoutDashboard, FileText, CheckSquare, MessageSquare, Settings as SettingsIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -23,10 +25,10 @@ export const Dashboard = () => {
     switch (activeTab) {
       case "dashboard":
         return (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 pb-20 sm:pb-6">
             <DashboardStats />
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2">
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6">
+              <div className="xl:col-span-2">
                 <QuickActions />
               </div>
               <div>
@@ -70,12 +72,43 @@ export const Dashboard = () => {
 
   return (
     <div className="flex h-screen bg-background">
-      <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
+      <div className="hidden sm:block w-16 sm:w-64">
+        <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
+      </div>
       <div className="flex-1 flex flex-col overflow-hidden">
         <DashboardHeader />
-        <main className="flex-1 overflow-auto p-6">
+        <main className="flex-1 overflow-auto p-3 sm:p-6">
           {renderContent()}
         </main>
+      </div>
+      
+      {/* Mobile Sidebar - Bottom Navigation */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-card border-t border-border z-50">
+        <div className="flex justify-around py-2">
+          {[
+            { id: "dashboard", icon: LayoutDashboard },
+            { id: "documents", icon: FileText },
+            { id: "tasks", icon: CheckSquare },
+            { id: "chat", icon: MessageSquare },
+            { id: "settings", icon: Settings },
+          ].map((item) => {
+            const Icon = item.icon;
+            return (
+              <button
+                key={item.id}
+                onClick={() => setActiveTab(item.id)}
+                className={cn(
+                  "flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-all duration-200",
+                  activeTab === item.id
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground"
+                )}
+              >
+                <Icon className="w-5 h-5" />
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
