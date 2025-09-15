@@ -1,101 +1,84 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, AlertTriangle } from "lucide-react";
+import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card";
+import { Calendar } from "lucide-react";
 
 export const UpcomingDeadlines = () => {
   const deadlines = [
     {
-      id: 1,
-      title: "GST Return Filing",
+      task: "GST Return Filing",
       client: "ABC Industries Ltd.",
-      date: "2024-01-15",
-      priority: "high",
-      daysLeft: 2
+      date: "Jan 15",
+      daysLeft: "2 days left",
+      urgency: "bg-destructive/20 text-destructive",
+      statusColor: "bg-destructive"
     },
     {
-      id: 2,
-      title: "Income Tax Assessment",
+      task: "Income Tax Assessment",
       client: "XYZ Trading Co.",
-      date: "2024-01-18",
-      priority: "medium",
-      daysLeft: 5
+      date: "Jan 18",
+      daysLeft: "5 days left",
+      urgency: "bg-warning/20 text-warning",
+      statusColor: "bg-warning"
     },
     {
-      id: 3,
-      title: "Audit Report Submission",
+      task: "Audit Report Submission",
       client: "PQR Services Pvt Ltd",
-      date: "2024-01-22",
-      priority: "high",
-      daysLeft: 9
+      date: "Jan 22",
+      daysLeft: "9 days left",
+      urgency: "bg-primary/20 text-primary",
+      statusColor: "bg-primary"
     },
     {
-      id: 4,
-      title: "TDS Return Filing",
+      task: "TDS Return Filing",
       client: "LMN Enterprises",
-      date: "2024-01-25",
-      priority: "low",
-      daysLeft: 12
+      date: "Jan 25",
+      daysLeft: "12 days left",
+      urgency: "bg-success/20 text-success",
+      statusColor: "bg-success"
     },
     {
-      id: 5,
-      title: "Annual Compliance",
+      task: "Annual Compliance",
       client: "DEF Corporation",
-      date: "2024-01-30",
-      priority: "medium",
-      daysLeft: 17
+      date: "Jan 30",
+      daysLeft: "17 days left",
+      urgency: "bg-muted text-muted-foreground",
+      statusColor: "bg-muted"
     }
   ];
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case "high":
-        return "bg-destructive/10 text-destructive";
-      case "medium":
-        return "bg-warning/10 text-warning";
-      case "low":
-        return "bg-success/10 text-success";
-      default:
-        return "bg-muted text-muted-foreground";
-    }
-  };
-
-  const getDaysLeftColor = (daysLeft: number) => {
-    if (daysLeft <= 3) return "text-destructive";
-    if (daysLeft <= 7) return "text-warning";
-    return "text-muted-foreground";
-  };
-
   return (
-    <Card className="p-6 bg-gradient-card shadow-soft">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold text-foreground">Upcoming Deadlines</h3>
-        <Calendar className="w-5 h-5 text-muted-foreground" />
-      </div>
-      <div className="space-y-4">
-        {deadlines.map((deadline) => (
-          <div key={deadline.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors">
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
-                <p className="font-medium text-foreground text-sm">{deadline.title}</p>
-                <Badge className={`text-xs ${getPriorityColor(deadline.priority)}`}>
-                  {deadline.priority}
-                </Badge>
-              </div>
-              <p className="text-sm text-muted-foreground">{deadline.client}</p>
-              <div className="flex items-center gap-1 mt-1">
-                <Clock className="w-3 h-3 text-muted-foreground" />
-                <span className="text-xs text-muted-foreground">{deadline.date}</span>
-              </div>
+    <Card className="bg-gradient-card shadow-soft">
+      <CardHeader className="pb-3 sm:pb-4">
+        <CardTitle className="text-title">Upcoming Deadlines</CardTitle>
+        <CardDescription className="text-caption">
+          Critical dates requiring attention
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3 sm:space-y-4">
+        {deadlines.map((deadline, index) => (
+          <div 
+            key={index} 
+            className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-accent/20 transition-all duration-200 group animate-fade-in"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <div className={`p-2 sm:p-3 rounded-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-200 ${deadline.urgency}`}>
+              <Calendar className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
             </div>
-            <div className="text-right">
-              <div className={`flex items-center gap-1 ${getDaysLeftColor(deadline.daysLeft)}`}>
-                {deadline.daysLeft <= 3 && <AlertTriangle className="w-4 h-4" />}
-                <span className="font-medium text-sm">{deadline.daysLeft} days</span>
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
+                <h4 className="font-medium text-sm sm:text-base lg:text-lg text-foreground truncate">
+                  {deadline.task}
+                </h4>
+                <span className="text-caption">{deadline.date}</span>
+              </div>
+              <p className="text-caption mt-1 truncate">{deadline.client}</p>
+              <div className="flex items-center gap-2 mt-2">
+                <div className={`w-2 h-2 rounded-full ${deadline.statusColor}`}></div>
+                <span className="text-caption">{deadline.daysLeft}</span>
               </div>
             </div>
           </div>
         ))}
-      </div>
+      </CardContent>
     </Card>
   );
 };
