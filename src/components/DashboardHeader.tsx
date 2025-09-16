@@ -1,6 +1,7 @@
 import { Bell, Search, User, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const DashboardHeader = () => {
   return (
@@ -26,6 +27,8 @@ export const DashboardHeader = () => {
             <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-destructive rounded-full"></span>
           </Button>
+          
+          <ThemeToggle />
           
           <Button variant="ghost" size="icon" className="hidden sm:flex">
             <Settings className="w-5 h-5" />

@@ -93,9 +93,9 @@ export const TeamChat = () => {
   };
 
   return (
-    <div className="h-[calc(100vh-8rem)] flex bg-background">
+    <div className="h-[calc(100vh-8rem)] flex bg-background overflow-hidden">
       {/* Sidebar */}
-      <div className="w-80 border-r border-border flex flex-col">
+      <div className="w-full md:w-80 border-r border-border flex flex-col md:flex hidden md:block">
         <div className="p-4 border-b border-border">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-foreground">Team Communication</h2>
@@ -269,7 +269,7 @@ export const TeamChat = () => {
       </div>
 
       {/* Member List (Optional - can be toggled) */}
-      <div className="w-64 border-l border-border p-4 bg-muted/20">
+      <div className="w-64 border-l border-border p-4 bg-muted/20 hidden lg:block">
         <h3 className="font-medium text-foreground mb-4 flex items-center gap-2">
           <Users className="w-4 h-4" />
           Members

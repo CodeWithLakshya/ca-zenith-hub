@@ -121,11 +121,11 @@ export const AttendanceManagement = () => {
   );
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6 p-2 sm:p-4 lg:p-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Attendance Management</h1>
-          <p className="text-muted-foreground mt-2">Track employee attendance, working hours, and leave requests</p>
+          <h1 className="text-title font-heading text-foreground">Attendance Management</h1>
+          <p className="text-muted-foreground mt-2 text-body">Track employee attendance, working hours, and leave requests</p>
         </div>
         <div className="flex gap-2">
           <Button onClick={handleMarkAttendance} className="gap-2">
@@ -135,7 +135,7 @@ export const AttendanceManagement = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <Card className="p-4 bg-gradient-card">
           <div className="flex items-center gap-2">
             <CheckCircle className="w-5 h-5 text-success" />
