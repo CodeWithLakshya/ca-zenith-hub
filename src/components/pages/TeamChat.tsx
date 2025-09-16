@@ -95,7 +95,7 @@ export const TeamChat = () => {
   return (
     <div className="h-[calc(100vh-8rem)] flex bg-background overflow-hidden">
       {/* Sidebar */}
-      <div className="w-full md:w-80 border-r border-border flex flex-col md:flex hidden md:block">
+      <div className="w-full md:w-80 border-r border-border flex flex-col hidden md:flex">
         <div className="p-4 border-b border-border">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-foreground">Team Communication</h2>

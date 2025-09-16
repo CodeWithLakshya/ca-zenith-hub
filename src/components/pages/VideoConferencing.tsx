@@ -230,10 +230,10 @@ export const VideoConferencing = () => {
 
   return (
     <div className="space-y-4 sm:space-y-6 p-2 sm:p-4 lg:p-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Video Conferencing</h1>
-          <p className="text-muted-foreground mt-2">Schedule and join meetings with clients and team members</p>
+          <h1 className="text-title font-heading text-foreground">Video Conferencing</h1>
+          <p className="text-muted-foreground mt-2 text-body">Schedule and manage video meetings with clients and team members</p>
         </div>
         <Dialog>
           <DialogTrigger asChild>

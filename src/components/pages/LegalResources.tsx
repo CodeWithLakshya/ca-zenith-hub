@@ -259,10 +259,10 @@ export const LegalResources = () => {
 
   return (
     <div className="space-y-4 sm:space-y-6 p-2 sm:p-4 lg:p-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Legal Resources Bank</h1>
-          <p className="text-muted-foreground mt-2">Comprehensive repository of acts, rules, notifications, and case laws</p>
+          <h1 className="text-title font-heading text-foreground">Legal Resources</h1>
+          <p className="text-muted-foreground mt-2 text-body">Access legal documents, templates, compliance guides, and regulatory updates</p>
         </div>
         <Dialog>
           <DialogTrigger asChild>

@@ -90,7 +90,7 @@ export const Dashboard = () => {
             { id: "documents", icon: FileText },
             { id: "tasks", icon: CheckSquare },
             { id: "chat", icon: MessageSquare },
-            { id: "settings", icon: Settings },
+            { id: "settings", icon: SettingsIcon },
           ].map((item) => {
             const Icon = item.icon;
             return (

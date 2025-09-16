@@ -28,7 +28,7 @@ export const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
     { id: "hr", label: "HR & Payroll", icon: Users },
     { id: "attendance", label: "Attendance", icon: Clock },
     { id: "chat", label: "Team Chat", icon: MessageSquare },
-    { id: "conference", label: "Video Conference", icon: Video },
+    { id: "video", label: "Video Conference", icon: Video },
     { id: "notifications", label: "Notifications", icon: Bell },
     { id: "resources", label: "Legal Resources", icon: BookOpen },
     { id: "ai-analysis", label: "AI Analysis", icon: Calculator },

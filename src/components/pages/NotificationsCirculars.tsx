@@ -193,10 +193,10 @@ export const NotificationsCirculars = () => {
 
   return (
     <div className="space-y-4 sm:space-y-6 p-2 sm:p-4 lg:p-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Notifications & Circulars</h1>
-          <p className="text-muted-foreground mt-2">Stay updated with latest notifications, circulars, and newsletters</p>
+          <h1 className="text-title font-heading text-foreground">Notifications & Circulars</h1>
+          <p className="text-muted-foreground mt-2 text-body">Stay updated with regulatory changes, compliance updates, and important announcements</p>
         </div>
         <div className="flex gap-2">
           <Dialog>
